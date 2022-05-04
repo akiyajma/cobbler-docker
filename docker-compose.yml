@@ -1,0 +1,41 @@
+version: "3.2"
+services:
+  cobbler:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: cobbler:1.0
+    container_name: cobbler
+    volumes:
+      - type: bind
+        source: "./cobbler-config/settings.yaml"
+        target: "/etc/cobbler/settings.yaml"
+      - type: bind
+        source: "./cobbler-config/dnsmasq.template"
+        target: "/etc/cobbler/dnsmasq.template"
+      - type: bind
+        source: "./cobbler-config/modules.conf"
+        target: "/etc/cobbler/modules.conf"
+      - type: bind
+        source: "/sys/fs/cgroup"
+        target: "/sys/fs/cgroup"
+      - type: volume
+        source: "iso"
+        target: "/mnt"
+      - type: volume
+        source: "var_lib_cobbler"
+        target: "/var/lib/cobbler"
+      - type: volume
+        source: "var_www_cobbler"
+        target: "/var/www/cobbler"
+    network_mode: host
+    cap_add:
+      - ALL
+    restart: always
+volumes:
+  iso:
+    driver: "local"
+  var_lib_cobbler:
+    driver: "local"
+  var_www_cobbler:
+    driver: "local"
