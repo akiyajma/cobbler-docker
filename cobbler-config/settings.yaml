@@ -72,7 +72,7 @@ redhat_management_server: "xmlrpc.rhn.redhat.com"
 redhat_management_permissive: false
 redhat_management_key: ""
 register_new_installs: false
-reposync_flags: "-l -n -d"
+reposync_flags: "-n --delete"
 reposync_rsync_flags: "-rltDv --copy-unsafe-links"
 restart_dns: true
 restart_dhcp: true
