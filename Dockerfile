@@ -18,7 +18,7 @@ RUN set -ex \
   && dnf install -y epel-release wget \
   && wget $COBBLER_RPM_URL \
   && dnf install -y dnsmasq pykickstart yum-utils debmirror git rsync-daemon \
-          ipxe-bootimgs shim grub2-efi-x64-modules $COBBLER_RPM_NAME syslinux net-tools \
+          ipxe-bootimgs shim grub2-efi-x64-modules $COBBLER_RPM_NAME syslinux net-tools python3-librepo \
   && cp -rf /usr/share/syslinux/* /var/lib/cobbler/loaders/ \
   && dnf remove -y syslinux \
   && dnf clean all \
