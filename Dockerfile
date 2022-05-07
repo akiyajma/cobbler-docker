@@ -12,7 +12,6 @@ RUN (cd /lib/systemd/system/sysinit.target.wants/; \
   rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
   rm -f /lib/systemd/system/basic.target.wants/*;\
   rm -f /lib/systemd/system/anaconda.target.wants/*;
-VOLUME [ "/sys/fs/cgroup" ]
 
 RUN set -ex \
   && dnf install -y epel-release $PUPPET_RPM_URL \
