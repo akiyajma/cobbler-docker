@@ -9,7 +9,6 @@ addn-hosts = /var/lib/cobbler/cobbler_hosts
 dhcp-no-override
 dhcp-lease-max=1000
 dhcp-authoritative
-interface=ens224
 dhcp-match=set:bios,option:client-arch,0
 dhcp-range=192.168.4.1,static,255.255.255.0
 dhcp-boot=tag:bios,pxelinux.0

@@ -20,6 +20,15 @@ docker-compose up -d
 * ./cobbler-config/dnsmasq.template
 * ./cobbler-config/modules.conf
 
+### Environment
+
+default setting
+* COBBLER_SERVER_IP=192.168.4.3
+* DNSMASQ_DHCP_RANGE1=192.168.4.1,static,255.255.255.0
+* PUPPET_EXITS_FLAG=true
+* PUPPET_CA_SERVER=puppet
+Install the puppet agent to manage cobbler. If you do not need it, set the flag to false.
+
 ### Volumes
 
 | type   | volume name     | soruce                            | target                        | 
@@ -31,5 +40,6 @@ docker-compose up -d
 | volume | iso             | -                                 | /mnt                          | 
 | volume | var_lib_cobbler | -                                 | /var/lib/cobbler              | 
 | volume | var_www_cobbler | -                                 | /var/www/cobbler              | 
+| volume | puppet          | -                                 | /opt/puppetlabs               | 
 
 

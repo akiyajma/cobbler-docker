@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.8"
 services:
   cobbler:
     build:
@@ -6,6 +6,14 @@ services:
       dockerfile: ./Dockerfile
     image: cobbler:1.0
     container_name: cobbler
+    environment:
+      - 'COBBLER_SERVER_IP=192.168.4.3'
+      - 'DNSMASQ_DHCP_RANGE1=192.168.4.1,static,255.255.255.0'
+      - 'PUPPET_EXITS_FLAG=true'
+      - 'PUPPET_CA_SERVER=puppet'
+    hostname: cobbler
+    extra_hosts:
+      - puppet:127.0.0.1
     volumes:
       - type: bind
         source: "./cobbler-config/settings.yaml"
@@ -28,6 +36,9 @@ services:
       - type: volume
         source: "var_www_cobbler"
         target: "/var/www/cobbler"
+      - type: volume
+        source: "puppet"
+        target: "/opt/puppetlabs"
     network_mode: host
     cap_add:
       - ALL
@@ -38,4 +49,6 @@ volumes:
   var_lib_cobbler:
     driver: "local"
   var_www_cobbler:
+    driver: "local"
+  puppet:
     driver: "local"
