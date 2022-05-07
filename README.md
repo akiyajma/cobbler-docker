@@ -14,12 +14,6 @@ docker-compose up -d
 
 ## Settings
 
-### Custom settings
-
-* ./cobbler-config/settings.yaml
-* ./cobbler-config/dnsmasq.template
-* ./cobbler-config/modules.conf
-
 ### Environment
 
 default setting
@@ -27,6 +21,7 @@ default setting
 * DNSMASQ_DHCP_RANGE1=192.168.4.1,static,255.255.255.0
 * PUPPET_EXITS_FLAG=true
 * PUPPET_CA_SERVER=puppet
+
 Install the puppet agent to manage cobbler. If you do not need it, set the flag to false.
 
 ### Volumes
