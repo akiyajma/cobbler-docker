@@ -10,10 +10,10 @@ services:
       - 'COBBLER_SERVER_IP=192.168.4.3'
       - 'DNSMASQ_DHCP_RANGE1=192.168.4.1,static,255.255.255.0'
       - 'PUPPET_EXITS_FLAG=true'
-      - 'PUPPET_CA_SERVER=puppet'
+      - 'PUPPET_CA_SERVER=puppetserver'
     hostname: cobbler
     extra_hosts:
-      - puppet:127.0.0.1
+      - puppetserver:127.0.0.1
     volumes:
       - type: bind
         source: "./cobbler-config/settings.yaml"

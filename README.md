@@ -20,9 +20,10 @@ default setting
 * COBBLER_SERVER_IP=192.168.4.3
 * DNSMASQ_DHCP_RANGE1=192.168.4.1,static,255.255.255.0
 * PUPPET_EXITS_FLAG=true
-* PUPPET_CA_SERVER=puppet
+* PUPPET_CA_SERVER=puppetserver
 
 Install the puppet agent to manage cobbler. If you do not need it, set the flag to false.
+To connect to the puppetserver, extra_hosts is used to register the puppetserver record.
 
 ### Volumes
 
